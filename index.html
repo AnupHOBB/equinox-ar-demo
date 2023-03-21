@@ -42,8 +42,9 @@
         <script>
             window.onload = ()=>{
                 let modelViewer = document.querySelector('model-viewer')
-                let h1 = document.querySelector('h1')
-                h1.addEventListener('click', e=>modelViewer.activateAR())
+                modelViewer.onload = ()=>modelViewer.activateAR()
+/*                 let h1 = document.querySelector('h1')
+                h1.addEventListener('click', e=>modelViewer.activateAR()) */
             }
         </script>
     </head>
@@ -55,7 +56,6 @@
                       src="AssemblyLouveredRoofEQ_lo.glb"
                       ar
                       ar-scale="fixed">
-<!--                     <button slot="ar-button" id="ar-button"></button> -->
         </model-viewer>
         <h1>TAP TO OPEN IN AR</h1>
     </body>
