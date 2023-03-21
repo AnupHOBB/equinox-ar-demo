@@ -42,12 +42,8 @@
         <script>
             window.onload = ()=>{
                 let modelViewer = document.querySelector('model-viewer')
-                modelViewer.onload = ()=>{
-                    alert('onload activateAR')
-                    modelViewer.activateAR()
-                }
-/*                 let h1 = document.querySelector('h1')
-                h1.addEventListener('click', e=>modelViewer.activateAR()) */
+                let h1 = document.querySelector('h1')
+                h1.addEventListener('click', e=>modelViewer.activateAR())
             }
         </script>
     </head>
