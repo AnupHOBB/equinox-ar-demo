@@ -13,20 +13,42 @@
                 width: 48px;
                 height: 48px;
             }
+
+            @media screen and (max-aspect-ratio : 1)
+            {
+                h1
+                {
+                    position: relative;
+                    top: 40%;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 4vh;
+                }   
+            }
+
+            @media screen and (min-aspect-ratio : 1)
+            {
+                h1
+                {
+                    position: relative;
+                    top: 35%;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 4vw;
+                } 
+            }
         </style>
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
         <script>
             window.onload = ()=>{
                 let modelViewer = document.querySelector('model-viewer')
-                modelViewer.onload = () => {
-                    alert('AR')
-                    modelViewer.activateAR()
-                }
+                let h1 = document.querySelector('h1')
+                h1.addEventListener('click', e=>modelViewer.activateAR())
             }
         </script>
     </head>
     <body>
-        <model-viewer style="width:100%; height:100%" 
+        <model-viewer style="width:0%; height:0%" 
                       disable-tap
                       autoplay
                       camera-controls touch-action="pan-y"
@@ -35,5 +57,6 @@
                       ar-scale="fixed">
                     <button slot="ar-button" id="ar-button"></button>
         </model-viewer>
+        <h1>TAP TO OPEN IN AR</h1>
     </body>
 </html>
