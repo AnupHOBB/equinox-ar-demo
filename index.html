@@ -41,21 +41,36 @@
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
         <script>
             window.onload = ()=>{
+                let models = ['AssemblyLouveredRoofEQ_lo.glb', 'AssemblyLouveredRoofEQ_lo_METERS.glb']
                 let modelViewer = document.querySelector('model-viewer')
-                let h1 = document.querySelector('h1')
-                h1.addEventListener('click', e=>modelViewer.activateAR())
+                document.body.addEventListener('click', e=>modelViewer.activateAR())
+                const queryString = window.location.search
+                let sceneType = 'r1'
+                if (queryString != undefined)
+                {
+                    const urlParams = new URLSearchParams(queryString)
+                    const type = urlParams.get('type')
+                    if (type != undefined && type == 'm')    
+                    {
+                        alert('opening AssemblyLouveredRoofEQ_lo_METERS')    
+                        modelViewer.src = models[1]
+                    }
+                    else
+                        alert('opening AssemblyLouveredRoofEQ_lo')   
+                }
+                else
+                    alert('opening AssemblyLouveredRoofEQ_lo')   
             }
         </script>
     </head>
     <body>
-        <model-viewer style="width:0%; height:0%" 
+        <model-viewer style="width:100%; height:100%" 
                       disable-tap
                       autoplay
                       camera-controls touch-action="pan-y"
-                      src="AssemblyLouveredRoofEQ_lo_METERS.glb"
+                      src="AssemblyLouveredRoofEQ_lo.glb"
                       ar
                       ar-scale="fixed">
         </model-viewer>
-        <h1>TAP TO OPEN IN AR</h1>
     </body>
 </html>
