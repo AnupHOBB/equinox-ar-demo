@@ -55,11 +55,16 @@
                         alert('opening AssemblyLouveredRoofEQ_lo_METERS')    
                         modelViewer.src = models[1]
                     }
+                    else if (type != undefined && type == 'cm') 
+                    {    
+                        alert('opening AssemblyLouveredRoofEQ_lo')
+                        modelViewer.src = models[0]
+                    } 
                     else
-                        alert('opening AssemblyLouveredRoofEQ_lo')   
+                        alert('opening Test') 
                 }
                 else
-                    alert('opening AssemblyLouveredRoofEQ_lo')   
+                    alert('opening Test')   
             }
         </script>
     </head>
@@ -68,7 +73,7 @@
                       disable-tap
                       autoplay
                       camera-controls touch-action="pan-y"
-                      src="AssemblyLouveredRoofEQ_lo.glb"
+                      src="Test.glb"
                       ar
                       ar-scale="fixed">
         </model-viewer>
