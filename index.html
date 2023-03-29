@@ -39,41 +39,13 @@
             }
         </style>
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
-        <script>
-            window.onload = ()=>{
-                let models = ['AssemblyLouveredRoofEQ_lo_CENTIMETERS.glb', 'AssemblyLouveredRoofEQ_lo_METERS.glb']
-                let modelViewer = document.querySelector('model-viewer')
-                document.body.addEventListener('click', e=>modelViewer.activateAR())
-                const queryString = window.location.search
-                let sceneType = 'r1'
-                if (queryString != undefined)
-                {
-                    const urlParams = new URLSearchParams(queryString)
-                    const type = urlParams.get('type')
-                    if (type != undefined && type == 'm')    
-                    {
-                        alert('opening AssemblyLouveredRoofEQ_lo_METERS')    
-                        modelViewer.src = models[1]
-                    }
-                    else if (type != undefined && type == 'cm') 
-                    {    
-                        alert('opening AssemblyLouveredRoofEQ_lo_CENTIMETERS')
-                        modelViewer.src = models[0]
-                    } 
-                    else
-                        alert('opening Test') 
-                }
-                else
-                    alert('opening Test')   
-            }
-        </script>
     </head>
     <body>
         <model-viewer style="width:100%; height:100%" 
                       disable-tap
                       autoplay
                       camera-controls touch-action="pan-y"
-                      src="Test.glb"
+                      src="AssemblyLouveredRoofEQ_lo_METERS.glb"
                       ar
                       ar-scale="fixed">
         </model-viewer>
