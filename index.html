@@ -2,6 +2,8 @@
     <head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <style>
+            body { background-color: rgb(0, 0, 0);}
+
             #ar-button
             {
                 background-color: rgba(0, 0, 0, 0);
@@ -10,34 +12,80 @@
                 border-color: rgba(0, 0, 0, 0);;
                 position: absolute;
                 right: 1%;
+                top: 1%;
                 width: 48px;
                 height: 48px;
             }
 
-            @media screen and (max-aspect-ratio : 1)
+            @media screen and (max-aspect-ratio: 1/1)
             {
-                h1
+                #back-button
                 {
-                    position: relative;
-                    top: 40%;
-                    width: 100%;
-                    text-align: center;
-                    font-size: 4vh;
-                }   
+                    position: absolute;
+                    top: 1%;
+                    left: 2.5%;
+                    width: auto;
+                    background-color: white;
+                    border-radius: 1ch;
+                    height: 4%;
+                    padding: 1%;
+                    user-select: none;
+                }
             }
 
-            @media screen and (min-aspect-ratio : 1)
+            @media screen and (min-aspect-ratio: 1/1)
             {
-                h1
+                #back-button
                 {
-                    position: relative;
-                    top: 35%;
-                    width: 100%;
-                    text-align: center;
-                    font-size: 4vw;
-                } 
+                    position: absolute;
+                    top: 2.5%;
+                    left: 1%;
+                    width: 3%;
+                    background-color: white;
+                    border-radius: 1ch;
+                    height: auto;
+                    padding: 1%;
+                    user-select: none;
+                }
             }
         </style>
+        <script>
+            window.onload = ()=>{
+                const queryString = window.location.search
+                if (queryString != undefined)
+                {
+                    const urlParams = new URLSearchParams(queryString)
+                    const color = urlParams.get('m')
+                    const roofColor = urlParams.get('r')
+                    let urlColorParam = ''
+                    if (color != undefined && roofColor != undefined)  
+                    {
+                        let modelViewer = document.querySelector('model-viewer')
+                        urlColorParam = '&m='+color
+                        modelViewer.onload = () => {
+                            if (modelViewer.model != undefined)
+                            {
+                                let primitives = modelViewer.model.primitives
+                                const materials = modelViewer.model.materials
+                                for (let material of materials)
+                                {    
+                                    if (material.name.includes('eqlouver'))
+                                        material.pbrMetallicRoughness.setBaseColorFactor('#'+roofColor)
+                                    else
+                                        material.pbrMetallicRoughness.setBaseColorFactor('#'+color)
+                                }
+                            }
+                        }
+                    }
+                    const type = urlParams.get('type')
+                    let backButton = document.getElementById('back-button')
+                    if (type != undefined)
+                        backButton.onclick = e => { window.location.href = 'scene.html?type='+type+urlColorParam}
+                    else
+                        document.body.removeChild(backButton)
+                }
+            }
+        </script>
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
     </head>
     <body>
@@ -49,5 +97,6 @@
                       ar
                       ar-scale="fixed">
         </model-viewer>
+        <img id="back-button" src="back-button.png"/>
     </body>
 </html>
