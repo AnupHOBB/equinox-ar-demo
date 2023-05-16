@@ -50,29 +50,34 @@
             }
         </style>
         <script>
+            const TEXTURE_PATHS = ['./textures/white.png', './textures/black.png', './textures/clay.png', './textures/sandstone.png', './textures/bronze.png']
+
             window.onload = ()=>{
                 const queryString = window.location.search
                 if (queryString != undefined)
                 {
                     const urlParams = new URLSearchParams(queryString)
-                    const color = urlParams.get('m')
-                    const roofColor = urlParams.get('r')
+                    const roofColorIndex = urlParams.get('r')
+                    const louverColorIndex = urlParams.get('l')
                     let urlColorParam = ''
-                    if (color != undefined && roofColor != undefined)  
+                    if (roofColorIndex != undefined && louverColorIndex != undefined)  
                     {
                         let modelViewer = document.querySelector('model-viewer')
-                        urlColorParam = '&m='+color
-                        modelViewer.onload = () => {
+                        urlColorParam = '&r='+roofColorIndex
+                        modelViewer.onload = async () => {
                             if (modelViewer.model != undefined)
                             {
+                                let roofTexture = await modelViewer.createTexture(TEXTURE_PATHS[parseInt(roofColorIndex)])
+                                let louverTexture = await modelViewer.createTexture(TEXTURE_PATHS[parseInt(louverColorIndex)])
+                                console.log(louverTexture)
                                 let primitives = modelViewer.model.primitives
                                 const materials = modelViewer.model.materials
                                 for (let material of materials)
                                 {    
                                     if (material.name.includes('eqlouver'))
-                                        material.pbrMetallicRoughness.setBaseColorFactor('#'+roofColor)
+                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(louverTexture)//material.pbrMetallicRoughness.setBaseColorFactor('#'+louverColorIndex)
                                     else
-                                        material.pbrMetallicRoughness.setBaseColorFactor('#'+color)
+                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(roofTexture)//material.pbrMetallicRoughness.setBaseColorFactor('#'+roofColorIndex)
                                 }
                             }
                         }
