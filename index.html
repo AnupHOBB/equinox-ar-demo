@@ -4,49 +4,289 @@
         <style>
             body { background-color: rgb(0, 0, 0);}
 
-            #ar-button
+            @media screen and (max-aspect-ratio : 1/1)
             {
-                background-color: rgba(0, 0, 0, 0);
-                background-image: url("https://modelviewer.dev/assets/ic_view_in_ar_new_googblue_48dp.png");
-                background-size: 48px 48px;
-                border-color: rgba(0, 0, 0, 0);;
-                position: absolute;
-                right: 1%;
-                top: 1%;
-                width: 48px;
-                height: 48px;
-            }
-
-            @media screen and (max-aspect-ratio: 1/1)
-            {
-                #back-button
+                div#overlay 
                 {
                     position: absolute;
-                    top: 1%;
-                    left: 2.5%;
+                    top: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 8%;
+                    border-width: 0px 0px 0.25ch 0px;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    background-color: rgb(0, 0, 0, 0.7); 
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (max-height: 600px)
+            {
+                div#overlay 
+                {
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 20%;
+                    border-width: 0px 0px 0.25ch 0px;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    background-color: rgb(0, 0, 0, 0.7); 
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (min-height: 600px)
+            {
+                div#overlay 
+                {
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    width: 100%;
+                    height: 8%;
+                    border-width: 0px 0px 0.25ch 0px;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    background-color: rgb(0, 0, 0, 0.7); 
+                }
+            }
+
+            @media screen and ((max-aspect-ratio : 1/1) or (min-aspect-ratio : 1/1)) and (max-width : 1670px)
+            {
+                img#logo
+                {
+                    position: absolute;
+                    top: -1%;
+                    left: 1.5%;
                     width: auto;
-                    background-color: white;
-                    border-radius: 1ch;
-                    height: 4%;
-                    padding: 1%;
+                    height: 100%;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (min-width : 1670px)
+            {
+                img#logo
+                {
+                    position: absolute;
+                    top: -1%;
+                    left: 7.75%;
+                    width: auto;
+                    height: 100%;
+                }
+            }
+
+            @media screen and (max-aspect-ratio : 1/1) and (max-width: 300px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 100px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
                     user-select: none;
                 }
             }
 
-            @media screen and (min-aspect-ratio: 1/1)
+            @media screen and (max-aspect-ratio : 1/1) and (min-width: 300px) and (max-width: 600px)
             {
-                #back-button
+                button#ar-btn
                 {
                     position: absolute;
-                    top: 2.5%;
-                    left: 1%;
-                    width: 3%;
-                    background-color: white;
-                    border-radius: 1ch;
-                    height: auto;
-                    padding: 1%;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
                     user-select: none;
                 }
+            }
+
+            @media screen and (max-aspect-ratio : 1/1) and (min-width: 600px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 200px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (max-width : 1300px) and (max-height: 300px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 25%;
+                    right: 1.5%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vw;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (max-width : 1300px) and (min-height: 300px) and (max-height: 500px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 25%;
+                    right: 1.5%;
+                    color: white;
+                    width: 120px;
+                    padding: 1ch;
+                    font-size: 2vw;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (max-width : 1300px) and (min-height: 500px) and (max-height: 600px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vw;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (max-width : 1300px) and (min-height: 600px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (min-width : 1300px) and (max-width : 1670px) and (min-height: 600px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 1.5%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            @media screen and (min-aspect-ratio : 1/1) and (min-width : 1670px) and (min-height: 600px)
+            {
+                button#ar-btn
+                {
+                    position: absolute;
+                    top: 20%;
+                    right: 7.75%;
+                    color: white;
+                    width: 150px;
+                    padding: 1ch;
+                    font-size: 2vh;
+                    font-family: 'Trade Gothic LT Std', sans-serif;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(0, 0, 0, 0);
+                    border-radius: 8ch;
+                    border-style: solid;
+                    border-color: rgb(232, 117, 36);
+                    border-width: 0.1ch;
+                    user-select: none;
+                }
+            }
+
+            button#ar-btn:hover
+            {
+                background-color: rgb(230, 62, 48);
+                border-color: rgb(230, 62, 48);
             }
         </style>
         <script>
@@ -60,34 +300,36 @@
                     const roofColorIndex = urlParams.get('r')
                     const louverColorIndex = urlParams.get('l')
                     let urlColorParam = ''
+                    let modelViewer = document.querySelector('model-viewer')
                     if (roofColorIndex != undefined && louverColorIndex != undefined)  
                     {
-                        let modelViewer = document.querySelector('model-viewer')
                         urlColorParam = '&r='+roofColorIndex
                         modelViewer.onload = async () => {
                             if (modelViewer.model != undefined)
                             {
                                 let roofTexture = await modelViewer.createTexture(TEXTURE_PATHS[parseInt(roofColorIndex)])
                                 let louverTexture = await modelViewer.createTexture(TEXTURE_PATHS[parseInt(louverColorIndex)])
-                                console.log(louverTexture)
                                 let primitives = modelViewer.model.primitives
                                 const materials = modelViewer.model.materials
                                 for (let material of materials)
                                 {    
                                     if (material.name.includes('eqlouver'))
-                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(louverTexture)//material.pbrMetallicRoughness.setBaseColorFactor('#'+louverColorIndex)
+                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(louverTexture)
                                     else
-                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(roofTexture)//material.pbrMetallicRoughness.setBaseColorFactor('#'+roofColorIndex)
+                                        material.pbrMetallicRoughness['baseColorTexture'].setTexture(roofTexture)
                                 }
                             }
                         }
                     }
                     const type = urlParams.get('type')
-                    let backButton = document.getElementById('back-button')
+                    let backButton = document.getElementById('logo')
                     if (type != undefined)
                         backButton.onclick = e => { window.location.href = 'scene.html?type='+type+urlColorParam}
                     else
-                        document.body.removeChild(backButton)
+                        backButton.onclick = e => { window.location.href = 'scene.html'}
+                    
+                    const arButton = document.getElementById('ar-btn')
+                    arButton.onclick = e => modelViewer.activateAR()
                 }
             }
         </script>
@@ -101,7 +343,11 @@
                       src="AssemblyLouveredRoofEQ_lo_METERS.glb"
                       ar
                       ar-scale="fixed">
+                    <button slot="ar-button" style="width:0%; height:0%" ></button>
         </model-viewer>
-        <img id="back-button" src="back-button.png"/>
+        <div id="overlay">
+            <img id="logo" src="logo-white.png"/>
+            <button id="ar-btn">View in AR</button>
+        </div>
     </body>
 </html>
